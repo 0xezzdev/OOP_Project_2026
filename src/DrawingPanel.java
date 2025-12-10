@@ -8,7 +8,7 @@ public class DrawingPanel extends JPanel {
 
     private final int SPACE = 80;
     private final int ROW_HEIGHT = 200;
-    private final int MAX_WIDTH = 1000;
+    private final int MAX_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 
     public DrawingPanel(Drawable[] shapes) {
         this.shapes = shapes;
@@ -20,7 +20,7 @@ public class DrawingPanel extends JPanel {
     private void calculatePanelSize() {
         int xAxes = 50;
         int topPadding = 100;
-        int bottomPadding = 100;
+        int bottomPadding = 200;
 
         int yAxes = topPadding;
 
@@ -60,11 +60,13 @@ public class DrawingPanel extends JPanel {
         int xAxes = SPACE;
         int yAxes = 100;
 
+        int currentPanelWidth = getWidth();
+
         for (Drawable shape : shapes) {
             if (shape != null) {
                 int shapeSize = getShapeSize(shape);
 
-                if (xAxes + shapeSize > MAX_WIDTH) {
+                if (xAxes + shapeSize > currentPanelWidth) {
                     xAxes = SPACE;
                     yAxes += ROW_HEIGHT + SPACE;
                 }

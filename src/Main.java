@@ -47,19 +47,33 @@ public class Main {
     public static void userInterface(Drawable[] shape) {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setLayout(new BorderLayout());
-        frame.setLocationRelativeTo(null);
+        frame.setResizable(true); // خليها true عشان لو حبيت تكبر الشاشة
+        frame.setLayout(new BorderLayout()); // مهم عشان التقسيمة
         frame.setBackground(Color.WHITE);
+
+        // 1. العنوان فوق
         JLabel titleLabel = new JLabel("OOP Project");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 36));
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
         frame.add(titleLabel, BorderLayout.NORTH);
 
+        // 2. البانل بتاعتك (زي ما هي بالظبط)
         DrawingPanel panel = new DrawingPanel(shape);
-        frame.add(panel, BorderLayout.CENTER);
-        frame.pack();
-        frame.setVisible(true);
 
+        // 3. الحل هنا: بنحط البانل جوه ScrollPane
+        JScrollPane scrollPane = new JScrollPane(panel);
+
+        // تسريع السكرول شوية عشان يبقى سلس (اختياري بس بيفرق في الاستخدام)
+        scrollPane.getVerticalScrollBar().setUnitIncrement(20);
+
+        // شيل البرواز بتاع السكرول لو عايز شكل انضف
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+
+        // 4. بنضيف السكرول (اللي جواه البانل) للـ Frame
+        frame.add(scrollPane, BorderLayout.CENTER);
+
+        frame.setSize(1000, 700); // حجم الشاشة الخارجي
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }
