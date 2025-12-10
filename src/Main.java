@@ -38,25 +38,28 @@ public class Main {
             }
             writer.println(sum);
             writer.close();
+            userInterface(shapes);
         }catch (Exception e){
             System.err.println(e.getMessage());
         }
 
     }
-//    public static void userInterface() {
-//        JFrame frame = new JFrame();
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setSize(800, 600);
-//        frame.setResizable(false);
-//        frame.setLocationRelativeTo(null);
-//        frame.setBackground(Color.WHITE);
-//
-//        Graphics g
-//        for( Drawable shape : shapes ) {
-//            if(shape != null) {
-//                shape.draw(,);
-//            }
-//        }
-//
-//    }
+    public static void userInterface(Drawable[] shape) {
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setLayout(new BorderLayout());
+        frame.setLocationRelativeTo(null);
+        frame.setBackground(Color.WHITE);
+        JLabel titleLabel = new JLabel("OOP Project");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        titleLabel.setHorizontalAlignment(JLabel.CENTER);
+        frame.add(titleLabel, BorderLayout.NORTH);
+
+        DrawingPanel panel = new DrawingPanel(shape);
+        frame.add(panel, BorderLayout.CENTER);
+        frame.pack();
+        frame.setVisible(true);
+
+    }
 }
