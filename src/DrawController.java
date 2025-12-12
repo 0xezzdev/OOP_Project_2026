@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class DrowController {
+public class DrawController {
     private static Drawable[] shapes;
     private static double totalSum = 0;
 

@@ -60,7 +60,7 @@ public class ProjectInterface extends JFrame {
 
         drawBtn.addActionListener(e -> {
             if (currentFile != null && currentFile.exists()) {
-                DrowController.drawShapes(currentFile);
+                DrawController.drawShapes(currentFile);
             } else {
                 JOptionPane.showMessageDialog(this,
                         "Please select a input file first!",
@@ -71,7 +71,7 @@ public class ProjectInterface extends JFrame {
         saveBtn.addActionListener(e -> {
             if (currentFile != null&&currentFile.exists()) {
 
-                boolean isSaved = DrowController.saveSumToTextFile(currentFile);
+                boolean isSaved = DrawController.saveSumToTextFile(currentFile);
 
                 if (isSaved) {
                     JOptionPane.showMessageDialog(this, "sumAreas.txt saved successfully");
