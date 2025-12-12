@@ -47,12 +47,13 @@ OOP_Project_2026/
 ├── src/
 │   ├── interfaces/
 │   │   └── Drawable.java       # Interface defining common behavior (draw, getArea)
-│   │
 │   ├── Circle.java             # Concrete class representing a 2D Circle
 │   ├── Cube.java               # Concrete class representing a 3D Cube
-│   │
 │   ├── DrawingPanel.java       # Custom JPanel logic for dynamic rendering & scrolling
-│   └── MainMenu.java           # Main entry point (GUI Dashboard & File Handling)
+│   ├── DrawController.java     # The draw controller
+│   └── ProjectInterface.java   # Main entry point (GUI Dashboard & File Handling)
+│   └── ThreeDShape.java        # The super class of 3D shapes
+│   └── Shape.java              # The shapes super class
 │
 ├── assets/                     # Images and GIFs used in this README
 ├── input.txt                   # Sample input file for testing
