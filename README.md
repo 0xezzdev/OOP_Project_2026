@@ -42,7 +42,7 @@ A robust Java application demonstrating **Object-Oriented Programming (OOP)** pr
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/0xezzdev/OOP_Project_2026.git](https://github.com/0xezzdev/OOP_Project_2026.git)
+    git clone https://github.com/0xezzdev/OOP_Project_2026.git
     ```
 2.  **Open in IDE:**
     * Open IntelliJ IDEA (or Eclipse/NetBeans).
