@@ -51,7 +51,7 @@ public class Main {
         frame.setLayout(new BorderLayout());
         frame.setBackground(Color.WHITE);
 
-        JLabel titleLabel = new JLabel("OOP Project");
+        JLabel titleLabel = new JLabel("OOP Project by: Ezzeldeen");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 36));
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
         frame.add(titleLabel, BorderLayout.NORTH);
