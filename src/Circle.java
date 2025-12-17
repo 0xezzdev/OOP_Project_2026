@@ -43,6 +43,7 @@ public class Circle extends Shape{
     public void draw(Graphics g, int x, int y) {
         try {
             Color colorObj = Color.decode(getColor());
+            g.setColor(colorObj);
         } catch (Exception e) {
             g.setColor(Color.BLACK);
         }

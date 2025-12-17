@@ -1,3 +1,33 @@
-2
+32
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
+circle 120
+cube 150
 circle 120
 cube 150

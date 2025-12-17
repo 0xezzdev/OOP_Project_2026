@@ -20,7 +20,6 @@ public abstract class Shape implements Drawable {
     public String getColor() {
         return color;
     }
-    public void setColor(String color) {}
 
     public Date getDateCrated() {
         return dateCrated;

@@ -54,37 +54,47 @@ public class DrawController {
         }
     }
     public static double calculateSumOfAreas(File inputFile) {
-        try {
-            Scanner input = new Scanner(inputFile);
-            totalSum = 0;
+        totalSum = 0;
+
+        try (Scanner input = new Scanner(inputFile)) {
             if (input.hasNextInt()) {
                 int size = input.nextInt();
                 shapes = new Drawable[size];
-                for (int i = 0; i < size; i++) {
-                    String shapeType = input.next();
-                    double value = input.nextDouble();
-                    switch (shapeType) {
-                        case "circle":
-                            shapes[i] = new Circle(value);
-                            totalSum += ((Shape) shapes[i]).getArea();
-                            break;
-                        case "cube":
-                            shapes[i] = new Cube(value);
-                            totalSum += ((Shape) shapes[i]).getArea();
-                            break;
-                        default:
-                            System.err.println("Invalid shape type " + shapeType);
-                            shapes[i] = null;
-                            i--;
-                    }
 
+                for (int i = 0; i < size; i++) {
+                    if (input.hasNext()) {
+                        String shapeType = input.next();
+                        if (input.hasNextDouble()) {
+                            double value = input.nextDouble();
+                            switch (shapeType) {
+                                case "circle":
+                                    shapes[i] = new Circle(value);
+                                    totalSum += ((Shape) shapes[i]).getArea();
+                                    break;
+                                case "cube":
+                                    shapes[i] = new Cube(value);
+                                    totalSum += ((Shape) shapes[i]).getArea();
+                                    break;
+                                default:
+                                    System.err.println("Invalid shape type: " + shapeType);
+                                    shapes[i] = null;
+                            }
+                        } else {
+                            System.err.println("Missing value for shape at index " + i);
+                            shapes[i] = null;
+                        }
+                    } else {
+                        System.err.println("End of file reached unexpectedly at index " + i);
+                        shapes[i] = null;
+                        break;
+                    }
                 }
-                return totalSum;
             }
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Cannot read file: " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error reading file: " + e.getMessage());
             e.printStackTrace();
         }
-        return 0;
+
+        return totalSum;
     }
 }
